@@ -1,0 +1,60 @@
+.navbar {
+	background-color: orange;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 42px;
+	width: 100%;
+}
+
+.navbar a, .navbar a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	color: blue;
+}
+
+.navbar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar li {
+	float: left;
+	margin-right: 4px;
+}
+
+.navbar-title {	
+	margin-top: -22px;
+	margin-left: 20px;
+	margin-right: 100px;
+	float: left;
+}
+
+.navbar-links {
+	float: left;
+	margin-top: 10px;
+}
+
+.navbar-links a, .navbar-links a:visited {
+	color: white;
+	font-size: 12,5pt;
+}
+
+.navbar-links a:hover {
+	color: blue;
+}
+
+.navbar-auth {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.content {	
+	padding-top: 50px;
+	margin-left: 40px;
+}
