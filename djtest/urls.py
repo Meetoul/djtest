@@ -6,7 +6,7 @@ from core import views as core_views
 
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
-    url(r'^admin/', admin.site.urls, name='login'),
-    url(r'^login', auth_views.login, {'template_name': 'core/login.html'},
+    url(r'^admin/', admin.site.urls, name='admin'),
+    url(r'^login/$', auth_views.login, {'template_name': 'core/login.html'},
         name='login'),
 ]
