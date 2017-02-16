@@ -2,15 +2,15 @@
 {% load static %}
 <html>
 	<head>
-		<title>Djatest</title>
-		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<title>Djtest</title>
+		<link rel="stylesheet" href="{% static 'djtest/css/base.css' %}">
 	</head>
 
 	<body>
         <header>
             <div class="navbar">
                 <div class="navbar-title">
-                    <h1><a href="{% url 'home' %}">Djatest</a></h1>
+                    <a href="{% url 'home' %}">Djatest</a>
                 </div>
                 
                 <div class="navbar-links">
@@ -23,8 +23,8 @@
 
                 <div class="navbar-auth">
                     <ul>
-                        <li><a href="{% url 'login' %}">Sign in</a></li>
-                        <li><a href="">Sign up</a></li>
+                        <li><a href="">Sign in</a></li>
+                        <li><a href="{% url 'register' %}">Sign up</a></li>
                     </ul>
                 </div>
             </div>

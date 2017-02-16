@@ -28,10 +28,15 @@
 }
 
 .navbar-title {	
-	margin-top: -22px;
+	margin-top: 5px;
 	margin-left: 20px;
 	margin-right: 100px;
 	float: left;
+}
+
+.navbar-title a, .navbar-title a:visited {	
+	font-size: 20pt;
+	font-weight: bold;
 }
 
 .navbar-links {
@@ -40,18 +45,17 @@
 }
 
 .navbar-links a, .navbar-links a:visited {
-	color: white;
-	font-size: 12,5pt;
-}
-
-.navbar-links a:hover {
-	color: blue;
+	font-size: 14pt;
 }
 
 .navbar-auth {
 	float: right;
 	margin-top: 10px;
 	margin-right: 10px;
+}
+
+.navbar-auth a, .navbar-auth a:visited {
+	font-size: 14pt;
 }
 
 .content {	
