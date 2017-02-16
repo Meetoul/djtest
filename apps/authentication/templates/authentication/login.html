@@ -3,16 +3,11 @@
 
 {% block content %}
 
-<h2>Sign up</h2>
+<h2>Sign in</h2>
 
 <form method="POST" role="form">{% csrf_token %}
     <label for="id_{{ form.username.name }}">{{ form.username.label }}</label>
     <input type="text" id="id_{{ form.username.name }}" required name="{{ form.username.name }}" autofocus>
-
-    <p/>
-
-    <label for="id_{{ form.email.name }}">{{ form.email.label }}</label>
-    <input type="text" id="id_{{ form.email.name }}" required name="{{ form.email.name }}" autofocus>
 
     <p/>
 
@@ -21,11 +16,6 @@
 
     <p/>
 
-    <label for="id_{{ form.password_repeat.name }}" >{{ form.password_repeat.label }}</label>
-    <input type="password" id="id_{{ form.password_repeat.name }}" required name="{{ form.password_repeat.name }}" autofocus>
-
-    <p/>
-
-    <button type="submit" value="Save">Save</button>
+    <button type="submit" value="Login">Login</button>
 </form>
 {% endblock %}

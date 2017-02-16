@@ -1,9 +1,10 @@
 from django import forms
+from django.contrib.auth import authenticate
 
 from .models import TestUser
 
 
-class RegistrationForm(forms.Form):
+class SignUpForm(forms.Form):
     username = forms.CharField(min_length=5, max_length=128)
     password = forms.CharField(min_length=5, max_length=128)
     password_repeat = forms.CharField(min_length=5, max_length=128)
@@ -20,7 +21,7 @@ class RegistrationForm(forms.Form):
             user = TestUser.objects.get(user__username=username)
             raise forms.ValidationError('This username already exsit!')
         except TestUser.DoesNotExist:
-                return username
+            return username
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -40,5 +41,21 @@ class RegistrationForm(forms.Form):
         return password_repeat
 
     def save(self):
-        user = super(RegistrationForm, self).save()
+        user = super(SignUpForm, self).save()
         return user
+
+
+class SignInForm(forms.Form):
+    username = forms.CharField(min_length=5, max_length=128)
+    password = forms.CharField(min_length=5, max_length=128)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if user is None:
+            raise forms.ValidationError('User does not exist!')
+        elif not user.is_active:
+            raise forms.ValidationError('Accont is not activated!')
+
+        return self.cleaned_data
