@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from testing.models import Test
+
 
 def home(request):
-    return render(request, 'core/home.html')
+    tests = Test.objects.order_by('attempts_number')
+    return render(request, 'core/home.html', {'tests': tests})

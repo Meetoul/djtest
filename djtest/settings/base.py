@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nested_inline',
     'core',
-    'authentication'
+    'authentication',
+    'testing',
 ]
 
 MIDDLEWARE = [

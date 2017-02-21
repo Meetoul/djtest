@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>HELLO THERE</h1>
+	<h1>Most popular tests</h1>
+
+	<ul>
+		{% for test in tests %}
+		<li>{{ test.name }}</li>
+		{% endfor %}	
+	</ul>
 {% endblock content %}
