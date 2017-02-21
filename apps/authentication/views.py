@@ -30,7 +30,7 @@ def sign_up(request):
         form = SignUpForm()
 
     context = {'form': form,
-               'user': user
+               'user': user,
                }
     return render(request, 'authentication/register.html', context)
 
@@ -49,9 +49,7 @@ def sign_in(request):
         form = SignInForm()
         user = None
 
-    context = {'form': form,
-               'target': {1, 2, 3},
-               }
+    context = {'form': form}
 
     return render(request, 'authentication/login.html', context)
 

@@ -7,7 +7,8 @@ from .models import TestUser
 class SignUpForm(forms.Form):
     username = forms.CharField(min_length=5, max_length=128)
     password = forms.CharField(min_length=5, max_length=128)
-    password_repeat = forms.CharField(min_length=5, max_length=128)
+    password_repeat = forms.CharField(
+        label='Confirm password', min_length=5, max_length=128)
     email = forms.EmailField()
 
     class Meta:
@@ -47,14 +48,14 @@ class SignUpForm(forms.Form):
 
 class SignInForm(forms.Form):
     username = forms.CharField(min_length=5, max_length=128)
-    password = forms.CharField(min_length=5, max_length=128)
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
     def clean(self):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         if user is None:
-            raise forms.ValidationError('User does not exist!')
+            raise forms.ValidationError('Wrong login or password!')
         elif not user.is_active:
             raise forms.ValidationError('Accont is not activated!')
 
