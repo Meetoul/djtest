@@ -1,0 +1,20 @@
+{%extends 'base.html' %}
+
+{% load static %}
+
+{% block scripts %}
+	<script src="{% static 'js/testing.js' %}"></script>
+{% endblock scripts %}
+
+{% block content %}
+
+	<h1>{{ test.name }}</h1>
+	<p>{{ test.description }}</p>
+
+	<input type="button" onclick="collapse('sometext')" value="press me">
+
+	<h1 id="sometext" style="font-size: 100pt; margin: 0;">
+		Test
+	</h1>
+
+{% endblock content %}
