@@ -10,11 +10,13 @@
 
 	<h1>{{ test.name }}</h1>
 	<p>{{ test.description }}</p>
+	<div id="test_id" style="display: none;">{{ test.id }}</div>
+	<div id="context" style="display: none;"></div>
 
-	<input type="button" onclick="collapse('sometext')" value="press me">
+	<div id="question_text"></div>
 
-	<h1 id="sometext" style="font-size: 100pt; margin: 0;">
-		Test
-	</h1>
+	<div id="choices">
+	</div>
 
+	<button id="btn1">Start test!</button>
 {% endblock content %}
