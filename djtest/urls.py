@@ -12,5 +12,8 @@ urlpatterns = [
     url(r'^signin/$', auth_views.sign_in, name='sign_in'),
     url(r'^signout/$', auth_views.sign_out, name='sign_out'),
     url(r'^test/(?P<pk>[0-9]+)/$', test_views.test_page, name='test'),
-    url(r'^test/\d+/question/$', test_views.question, name='question'),
+    url(r'^test/(?P<pk>[0-9]+)/get_questions/$',
+        test_views.get_questions, name='get_questions'),
+    url(r'^test/(?P<pk>[0-9]+)/get_result/$',
+        test_views.get_result, name='get_result'),
 ]

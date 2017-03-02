@@ -10,13 +10,12 @@
 
 	<h1>{{ test.name }}</h1>
 	<p>{{ test.description }}</p>
-	<div id="test_id" style="display: none;">{{ test.id }}</div>
-	<div id="context" style="display: none;"></div>
 
 	<div id="question_text"></div>
 
 	<div id="choices">
 	</div>
 
-	<button id="btn1">Start test!</button>
+	<button id="start-btn">Start test!</button>
+	<button id="ans-btn" style="display: none;">Answer</button>
 {% endblock content %}
