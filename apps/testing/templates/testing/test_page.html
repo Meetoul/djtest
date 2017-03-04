@@ -1,0 +1,25 @@
+{%extends 'base.html' %}
+
+{% load static %}
+
+{% block scripts %}
+	<script src="{% static 'js/test_page.js' %}"></script>
+{% endblock scripts %}
+
+{% block content %}
+
+	<h1>{{ test.name }}</h1>
+
+	<div id="progress"></div>
+	<div id="question_text"></div>
+
+	<div id="choices">
+	</div>
+
+	<button id="ans-btn">Answer</button>
+
+	<div id="error" style="color: red"></div>
+
+	</p>
+	<a id="result-link" href="" style="display: none;">Go to results</a>
+{% endblock content %}

@@ -5,12 +5,20 @@ import json
 from .models import Test
 
 
+def test_details(request, pk):
+    test = get_object_or_404(Test, pk=pk)
+    context = {
+        'test': test,
+    }
+    return render(request, 'testing/test_details.html', context)
+
+
 def test_page(request, pk):
     test = get_object_or_404(Test, pk=pk)
     context = {
         'test': test,
     }
-    return render(request, 'testing/test.html', context)
+    return render(request, 'testing/test_page.html', context)
 
 
 def get_questions(request, pk):
@@ -28,17 +36,21 @@ def get_questions(request, pk):
     return JsonResponse({'questions': response})
 
 
-def get_result(request, pk):
+def result(request, pk):
     answers = json.loads(request.GET['answers'])
+    print(answers)
     questions = Test.objects.get(pk=pk).question_set.all()
     correct_answers = {
         str(q.pk): str([
             c.pk for c in q.choice_set.all() if c.correct
         ][0]) for q in questions
     }
-    result = 0
+    num_of_correct = 0
     for k, v in answers.items():
         if correct_answers[k] == v:
-            result += 1
-    result = result / len(answers) * 100
-    return JsonResponse({'result': result})
+            num_of_correct += 1
+    percentage = int(num_of_correct / len(answers) * 100)
+    context = {
+        'percentage': percentage,
+    }
+    return render(request, 'testing/test_result.html', context)

@@ -1,0 +1,8 @@
+{%extends 'base.html' %}
+
+{% block content %}
+	<h1>{{ test.name }}</h1>
+	<p>{{ test.description }}</p>
+	Number of questions is: {{ test.question_set.count }}
+	<a href="{% url 'test_page' pk=test.pk %}">Start test</a>
+{% endblock content %}

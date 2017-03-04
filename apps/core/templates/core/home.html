@@ -5,7 +5,7 @@
 
 	<ul>
 		{% for test in tests %}
-		<li><a href="{% url 'test' pk=test.pk %}">{{ test.name }}</a></li>
+		<li><a href="{% url 'test_details' pk=test.pk %}">{{ test.name }}</a></li>
 		{% endfor %}	
 	</ul>
 {% endblock content %}
