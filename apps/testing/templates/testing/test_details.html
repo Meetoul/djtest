@@ -3,6 +3,9 @@
 {% block content %}
 	<h1>{{ test.name }}</h1>
 	<p>{{ test.description }}</p>
-	Number of questions is: {{ test.question_set.count }}
-	<a href="{% url 'test_page' pk=test.pk %}">Start test</a>
+	<p>Number of questions: {{ test.question_set.count }}</p>
+	<p>Number of passes: {{ test.passes_number }}</p>
+	{% if user.is_authenticated %}
+		<a href="{% url 'test_page' pk=test.pk %}">Start test</a>
+	{% endif %}
 {% endblock content %}

@@ -6,7 +6,7 @@ class Test(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     pub_date = models.DateTimeField(default=timezone.now)
-    attempts_number = models.IntegerField(default=0)
+    passes_number = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

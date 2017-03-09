@@ -4,5 +4,6 @@ from testing.models import Test
 
 
 def home(request):
-    tests = Test.objects.order_by('attempts_number')
+
+    tests = Test.objects.order_by('passes_number')
     return render(request, 'core/home.html', {'tests': tests})
