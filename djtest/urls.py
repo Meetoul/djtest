@@ -15,8 +15,6 @@ urlpatterns = [
         test_views.test_details, name='test_details'),
     url(r'^test/(?P<pk>[0-9]+)/$',
         test_views.test_page, name='test_page'),
-    url(r'^test/(?P<pk>[0-9]+)/get_questions/$',
-        test_views.get_questions, name='get_questions'),
-    url(r'^test/(?P<pk>[0-9]+)/result/$',
-        test_views.result, name='result'),
+    url(r'^test_result/(?P<pk>[0-9]+)/$',
+        test_views.test_result, name='test_result')
 ]

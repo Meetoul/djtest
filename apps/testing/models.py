@@ -5,6 +5,7 @@ from django.utils import timezone
 class Test(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
+    result_text = models.CharField(max_length=300)
     pub_date = models.DateTimeField(default=timezone.now)
     passes_number = models.IntegerField(default=0)
 

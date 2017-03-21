@@ -16,7 +16,7 @@ class QuestionInline(NestedStackedInline):
 
 class TestAdmin(NestedModelAdmin):
     fieldsets = [
-        (None, {'fields': ['name', 'description']}),
+        (None, {'fields': ['name', 'description', 'result_text']}),
     ]
     inlines = [QuestionInline]
 

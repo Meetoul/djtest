@@ -2,26 +2,21 @@
 
 {% load static %}
 
+{% block scripts %}
+	<script src="{% static 'js/test_page.js' %}"></script>
+{% endblock scripts %}
+
 {% block content %}
-
 	<h1>{{ test.name }}</h1>
-
-	<div id="progress"></div>
-	<div id="question_text"></div>
-
-	<form action="result/" method="POST">{% csrf_token %}
-		<div id="choices">
-			{% for q in questions %}
-			<p>{{ q.text }}</p>
-				{% for c in q.choices %}
-				<input type="radio" name="{{ q.id }}" value="{{ c.id }}">{{ c.text }}<br>
+	<form id="questions-form" action="{% url 'test_result' pk=test.pk %}" method="POST">{% csrf_token %}
+		{% for question in test.question_set.all %}
+			<div class="question">
+				<p>{{ question.text }}</p>
+				{% for choice in question.choice_set.all %}
+					<input type="radio" name="{{ question.pk }}" value="{{ choice.pk }}">{{ choice.text }}<br>
 				{% endfor %}
-			</p>
-			{% endfor %}
-		</div>
+			</div>
+		{% endfor%}
 		<button type="submit">Submit</button>
 	</form>
-	<button id="ans-btn">Answer</button>
-
-	<div id="error" style="color: red"></div>
 {% endblock content %}
