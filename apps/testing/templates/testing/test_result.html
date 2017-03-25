@@ -1,6 +1,27 @@
 {%extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/test_result.css' %}">
 	<h1>{{ test.name }}</h1>
 	{{ test.result_text }}: {{ percentage }} %
+
+	<p>Result per question:</p>
+	<table>
+		{% for question in res_per_question %}
+			<tr>
+				<td>
+					<div style="float: left;">{{ question.0.text }}</div>
+				</td>
+				<td>
+					{% if question.1 %}
+						<div style="color: green;">Correct</div>
+					{% else %}
+						<div style="color: red;">Wrong</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
 {% endblock content %}

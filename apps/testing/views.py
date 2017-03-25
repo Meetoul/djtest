@@ -28,14 +28,15 @@ def test_result(request, pk):
     questions = test.question_set.all()
     correct_answers = {str(q.pk): str(q.choice_set.get(
         correct=True).pk) for q in questions}
-    num_of_correct = 0
+    res_per_question = []
     for key, val in correct_answers.items():
-        if user_answers[key] == val:
-            num_of_correct += 1
-    percentage = round((num_of_correct / len(correct_answers)) * 100, 1)
-    print(percentage)
+        res_per_question.append(
+            (questions.get(pk=key), user_answers[key] == val))
+    number_of_correct = sum(1 for x in res_per_question if x[1])
+    percentage = round(number_of_correct / len(res_per_question) * 100, 1)
     context = {
         'test': test,
         'percentage': percentage,
+        'res_per_question': res_per_question,
     }
     return render(request, 'testing/test_result.html', context)
